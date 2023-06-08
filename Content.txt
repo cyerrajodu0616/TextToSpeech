@@ -1,0 +1,76 @@
+Don't interrupt when someone is talking.
+Don't judge someone by their appearance.
+Always respect someone's personal space.
+Never assume something about someone.
+Apologize when you're wrong.
+Don't talk badly about someone behind their back.
+Be honest, even if it's hard.
+Don't gossip or spread rumors.
+Don't stare or make inappropriate comments.
+Treat others how you want to be treated.
+Offer help when you can.
+Don't let your anger control your actions.
+
+
+10 Crazy things introverts do that you should know
+
+They can spend days without any human interaction with ease.
+They feel bad for your poor sense of humour but try to laugh to make you happy.
+Knowing the answer but still not answering in class.
+When placing an order if they can't pronounce the name properly then that dish would not be ordered.
+Ask the youger sibling to do things so that you don't have to leave the house.
+Every conversation has a pre-existing script inside their head.
+They are actually quite funny and hilarious inside their head and wish that people knew about it.
+They don't indulge in conversation with others because they are busy having a debate inside their head.
+They are really funny and witty over texts but calls are awkward for them.
+They are quite conscious about their personality.
+
+
+Learn to judge these 05 things about any person
+
+If you want to see someone's nature, then give him freedom.
+If you want to see the goodness of someone, then take advice from him.
+If you want to see someone's quality, then eat food with him.
+If you want to see someone's habit, give him respect.
+If you want to see someone's intention, then give him a loan.
+
+
+tts --text "Text for TTS" --model_name "tts_models/en/vctk/vits" --vocoder_name "vocoder_models/en/ljspeech/hifigan_v2" --out_path "C:\Work\GitHubRepo\TextToSpeech\audio.mp3"
+
+tts --text "Text for TTS" --model_name "tts_models/en/vctk/vits" --vocoder_name "vocoder_models/en/ljspeech/hifigan_v2" --speaker_id "p233"  --out_path "C:\Work\GitHubRepo\TextToSpeech\audio.mp3"
+tts --text "They can spend days without any human interaction with ease. They feel bad for your poor sense of humour but try to laugh to make you happy. Knowing the answer but still not answering in class. When placing an order if they can't pronounce the name properly then that dish would not be ordered. Ask the youger sibling to do things so that you don't have to leave the house. Every conversation has a pre-existing script inside their head. They are actually quite funny and hilarious inside their head and wish that people knew about it. They don't indulge in conversation with others because they are busy having a debate inside their head. They are really funny and witty over texts but calls are awkward for them. They are quite conscious about their personality." --model_name "tts_models/en/ljspeech/vits--neon"  --out_path "C:\Work\GitHubRepo\TextToSpeech\audio.wav"
+tts --text "They can spend days without any human interaction with ease. They feel bad for your poor sense of humour but try to laugh to make you happy. Knowing the answer but still not answering in class. When placing an order if they can't pronounce the name properly then that dish would not be ordered. Ask the youger sibling to do things so that you don't have to leave the house. Every conversation has a pre-existing script inside their head. They are actually quite funny and hilarious inside their head and wish that people knew about it. They don't indulge in conversation with others because they are busy having a debate inside their head. They are really funny and witty over texts but calls are awkward for them. They are quite conscious about their personality." --model_name "tts_models/en/ljspeech/fast_pitch" --vocoder_name "vocoder_models/en/ljspeech/hifigan_v2"  --out_path "C:\Work\GitHubRepo\TextToSpeech\audio.wav"
+tts --text "They feel bad for your poor sense of humour but try to laugh to make you happy" --model_name "tts_models/en/ljspeech/fast_pitch" --vocoder_name "vocoder_models/en/ljspeech/hifigan_v2"  --out_path "C:\Work\GitHubRepo\TextToSpeech\audio.mp3"
+
+tts --text "Text for TTS" --model_name "tts_models/en/vctk/vits" --vocoder_name "vocoder_models/en/ljspeech/hifigan_v2" speaker_idx="p273" --out_path "C:\Work\GitHubRepo\TextToSpeech\audio.wav"
+
+
+tts_models/en/ljspeech/vits--neon
+
+
+#!/usr/bin/env bash
+
+declare -a text="The quick brown fox jumps over the lazy dog"
+
+declare -a tts_models=(
+    "tts_models/en/ljspeech/fast_pitch"
+    "tts_models/en/ljspeech/glow-tts"
+    "tts_models/en/ljspeech/speedy-speech"
+    "tts_models/en/ljspeech/tacotron2-DDC_ph"
+)
+
+declare -a vocoder_models=(
+    "vocoder_models/en/ljspeech/hifigan_v2"
+    "vocoder_models/en/ljspeech/multiband-melgan"
+    "vocoder_models/en/ljspeech/multiband-melgan"
+    "vocoder_models/en/ljspeech/univnet"
+    "vocoder_models/universal/libri-tts/fullband-melgan"
+)
+
+for model_name in "${tts_models[@]}"
+do
+    for vocoder_name in "${vocoder_models[@]}"
+    do
+        tts --text "${text}" --model_name "${model_name}" --vocoder_name "${vocoder_name}" --out_path "${model_name//\//-}-${vocoder_name//\//-}".wav
+    done
+done
