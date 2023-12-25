@@ -34,3 +34,7 @@ tts_models_en_multi-dataset_tortoise-v2-vocoder_models_en_ljspeech_univnet
 tts_models_en_multi-dataset_tortoise-v2-vocoder_models_ja_kokoro_hifigan_v1
 tts_models_en_multi-dataset_tortoise-v2-vocoder_models_uk_mai_multiband-melgan
 tts_models_en_multi-dataset_tortoise-v2-vocoder_models_tr_common-voice_hifigan    
+
+set PYTHONIOENCODING=UTF-8
+set PYTHONLEGACYWINDOWSSTDIO=UTF-8
+set PHONEMIZER_ESPEAK_PATH=C:/Program Files/eSpeak NG/espeak-ng.exe
