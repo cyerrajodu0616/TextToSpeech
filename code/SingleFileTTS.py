@@ -17,6 +17,8 @@ engine = pyttsx3.init()
 engine.setProperty("speed",50)
 voices = engine.getProperty('voices')
 
+contentFileLocation = "C:\\Users\\ycrag\\PycharmProjects\\TextToSpeech\\content\\"
+
 for v in voices:
     print(v)
 
@@ -24,7 +26,7 @@ for text in Text_list_Male:
     engine.setProperty("voice", voices[0].id)
     text_input = text
 #engine.say(text_input);
-    engine.save_to_file(text_input,f"C:\\Users\\ycrag\\work\\gitHubRepo\\TextToSpeech\\content\\shopping_Male_{i}.mp3")
+    engine.save_to_file(text_input,f"{contentFileLocation}shopping_Male_{i}.mp3")
     i+=1
 
 
@@ -34,7 +36,7 @@ for text in Text_list_Female:
     engine.setProperty("voice", voices[1].id)
     text_input = text
 #engine.say(text_input);
-    engine.save_to_file(text_input,f"C:\\Users\\ycrag\\work\\gitHubRepo\\TextToSpeech\\content\\shopping_Female_{i}.mp3")
+    engine.save_to_file(text_input,f"{contentFileLocation}shopping_Female_{i}.mp3")
     i+=1
 
 engine.runAndWait()
